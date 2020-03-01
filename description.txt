@@ -1,0 +1,47 @@
+Void Encounter is a content mod that currently adds:
+- 6 items
+- 1 NPC
+- 1 Enemy
+
+Credits to:
+Requias#9017 for Pentagram Projectile Sprite Sheet
+
+Changelog: 
+(2/28/2020)
+- Removed all the spears
+- Added the Void Seer's Mallet (Magic weapon)
+- Added the Abyssal Mage
+
+(2/26/2020)
+- Fixed Moss Stinger
+- Renamed Moss Stinger to Mossy Stinger
+- Added Molten Impaler
+- Extended Mossy Stinger's range
+- Added Ancient Partisan
+- Shrank sprites
+- Added Dark Lance recipe
+
+(2/25/2020)
+- Added King's Klobberer
+- Nerfed Prodding Rod
+- Added Corrupted Halberd
+- Added Bloody Naginata
+- Adjusted some stuff
+
+(2/24/2020)
+- Added Prodding Rod 
+
+(2/23/2020)
+- Added The Obstructer
+- Updated Manu's Hoodie's sprite
+
+(2/21/2020)
+- Removed Game Crasher
+
+(2/20/2020)
+- Added Game Breaker
+- Added Game Crasher
+   - They don't actually do anything
+
+- Added Manu's Hoodie
+   - Recipe: 12 silk at a loom

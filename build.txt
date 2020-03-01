@@ -1,0 +1,4 @@
+author = Terra - Inane Edition#5822
+version = 1.7.1
+displayName = [c/a134eb:Void] [c/a134eb:Encounter]
+homepage = https://forums.terraria.org/index.php?threads/void-encounter.86284/
