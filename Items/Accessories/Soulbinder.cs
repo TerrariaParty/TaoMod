@@ -11,7 +11,7 @@ namespace TaoMod.Items.Accessories
 		public override void SetStaticDefaults() {
 
 			DisplayName.SetDefault("The Soulbinder");
-			Tooltip.SetDefault("'Harvest their souls'\nReduces damage dealt by 35%\n[c/ffe62d:You heal after hitting an enemy]");
+			Tooltip.SetDefault("'Harvest their souls'\nReduces damage dealt by 35%\nYou heal after hitting an enemy");
 
 		}
 		public override void SetDefaults() {
