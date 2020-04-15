@@ -14,7 +14,7 @@ namespace TaoMod.Items.Consumables
 		{
 
 			DisplayName.SetDefault("Cubes of Many Wonders");
-			Tooltip.SetDefault("Right-Click to open");	}
+			Tooltip.SetDefault("Right-Click to open\nWho knows what's contained within these cubes?");	}
 		public override void SetDefaults()
 		{
 			item.width = 34;
@@ -52,5 +52,4 @@ namespace TaoMod.Items.Consumables
 	}
 }
 
-//Heya there
 
