@@ -70,8 +70,9 @@ namespace TaoMod
 			if (Main.LocalPlayer.GetModPlayer<TaoPlayer>().HasSoulbinder == true)
 			{
 				int amountToHeal = Main.rand.Next(1, 10); // Heal 1 - 10 damage.
-				if (amountToHeal + player.statLife > player.statLifeMax2)
-					amountToHeal = player.statLifeMax - player.statLife; // If healing is larger than health currently missing.
+				if (amountToHeal + player.statLife > player.statLifeMax2){
+					amountToHeal = player.statLifeMax2 - player.statLife; // If healing is larger than health currently missing.
+				}
 				player.statLife += amountToHeal;
 				player.HealEffect(amountToHeal, true);
 			}
@@ -82,8 +83,9 @@ namespace TaoMod
 			if (Main.LocalPlayer.GetModPlayer<TaoPlayer>().HasSoulbinder == true)
 			{
 				int amountToHeal = Main.rand.Next(1, 10); // Heal 1 - 10 damage.
-				if (amountToHeal + player.statLife > player.statLifeMax2)
-					amountToHeal = player.statLifeMax - player.statLife; // If healing is larger than health currently missing.
+				if (amountToHeal + player.statLife > player.statLifeMax2){
+					amountToHeal = player.statLifeMax2 - player.statLife; // If healing is larger than health currently missing.
+				}
 				player.statLife += amountToHeal;
 				player.HealEffect(amountToHeal, true);
 			}
