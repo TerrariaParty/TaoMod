@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using TaoMod.UI;
 using System.Collections.Generic;
 using System.Linq;
+using TaoMod.Items.Consumables;
+using System;
 
 namespace TaoMod
 {
@@ -22,6 +24,26 @@ namespace TaoMod
 			ResetVariables();
 			abyssalDebuff = false;
 			riftMinion = false;
+		}
+
+		private void AddStartItem(ref IList<Item> items, int itemType, int stack = 1)
+		{
+			Item item = new Item();
+			item.SetDefaults(itemType);
+			item.stack = stack;
+			items.Add(item);
+		}
+		public override void SetupStartInventory(IList<Item> items, bool mediumcoreDeath)
+		{
+			Item item = new Item();
+			item.SetDefaults(ModContent.ItemType<CubesOfManyWonders>());
+			item.stack = 1;
+			items.Add(item);
+		}
+
+		private int ItemType<T>()
+		{
+			throw new NotImplementedException();
 		}
 
 		public override void UpdateDead() {
