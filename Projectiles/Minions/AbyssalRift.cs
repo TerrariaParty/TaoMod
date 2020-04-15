@@ -30,7 +30,7 @@ namespace TaoMod.Projectiles.Minions
 			projectile.height = 32;
 			projectile.friendly = true;
 			projectile.minion = true;
-			projectile.minionSlots = 1;
+			projectile.minionSlots = 2;
 			projectile.penetrate = -1;
 			projectile.timeLeft = 18000;
 			projectile.tileCollide = false;

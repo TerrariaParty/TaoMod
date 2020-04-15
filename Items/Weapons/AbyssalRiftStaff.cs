@@ -11,7 +11,7 @@ namespace TaoMod.Items.Weapons
 	public class AbyssalRiftStaff : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Tears a rift in reality");
+			Tooltip.SetDefault("Tears a rift in reality\nRequires 2 minion slots to use");
 			ItemID.Sets.GamepadWholeScreenUseRange[item.type] = true;
 			ItemID.Sets.LockOnIgnoresCollision[item.type] = true;
 		}
