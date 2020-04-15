@@ -18,7 +18,7 @@ namespace TaoMod.Items.Accessories
 			item.width = 28;
 			item.height = 30;
 			item.accessory = true;
-			item.rare = 8;
+			item.rare = -12;
 			item.maxStack = 1;
 			item.value = Item.sellPrice(gold: 15);
 			item.expertOnly = true;
