@@ -45,3 +45,5 @@ namespace TaoMod.Items.Accessories
 
 		}
 }
+
+//Now all weapons are Vampire Knives!

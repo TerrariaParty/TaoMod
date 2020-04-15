@@ -38,3 +38,5 @@ namespace TaoMod.Items.Materials
 	}
 }
 
+//At one point this would be a Shiny Stone
+
