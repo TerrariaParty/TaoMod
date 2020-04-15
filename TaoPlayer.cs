@@ -69,8 +69,7 @@ namespace TaoMod
 		{
 			if (Main.LocalPlayer.GetModPlayer<TaoPlayer>().HasSoulbinder == true)
 			{
-				//Adds OnFire for 5 seconds
-				int amountToHeal = Main.rand.Next(1, 10); // Heal half of damage dealt.
+				int amountToHeal = Main.rand.Next(1, 10); // Heal 1 - 10 damage.
 				if (amountToHeal + player.statLife > player.statLifeMax2)
 					amountToHeal = player.statLifeMax - player.statLife; // If healing is larger than health currently missing.
 				player.statLife += amountToHeal;
@@ -82,7 +81,7 @@ namespace TaoMod
 		{
 			if (Main.LocalPlayer.GetModPlayer<TaoPlayer>().HasSoulbinder == true)
 			{
-				int amountToHeal = Main.rand.Next(1, 10); // Heal half of damage dealt.
+				int amountToHeal = Main.rand.Next(1, 10); // Heal 1 - 10 damage.
 				if (amountToHeal + player.statLife > player.statLifeMax2)
 					amountToHeal = player.statLifeMax - player.statLife; // If healing is larger than health currently missing.
 				player.statLife += amountToHeal;
