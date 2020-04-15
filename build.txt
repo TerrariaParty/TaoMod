@@ -1,4 +1,4 @@
-author = Terra - Inane Edition#5822
-version = 1.7.1
-displayName = [c/a134eb:Void] [c/a134eb:Encounter]
-homepage = https://forums.terraria.org/index.php?threads/void-encounter.86284/
+author = Terra, holeow, GlitchOut, Wispcream, Exitium
+version = 2.4.1.5
+displayName = The Tao Mod
+homepage = https://forums.terraria.org/index.php?threads/the-tao-mod.86400/

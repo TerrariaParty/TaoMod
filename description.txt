@@ -1,12 +1,43 @@
-Void Encounter is a content mod that currently adds:
-- 6 items
-- 1 NPC
-- 1 Enemy
+The Tao Mod is a content mod centered around the Chinese religion Taoism (also known as Daoism) and the balance of light and dark.
 
-Credits to:
-Requias#9017 for Pentagram Projectile Sprite Sheet
+Developers:
+GlitchOut - Developer/Lead Spriter
+Terra - Developer/Lead Mod Designer
+absoluteAquarian - Developer
+holeow - Lead Developer
+Wispcream - Spriter
+Exitium - Spriter
+Darkpuppey - Spriter
+
 
 Changelog: 
+(4/3/2020)
+- Big update approaching...
+
+(3/6/2020)
+- Finished the Abyssal Mage Set
+- Added the Abyssal Emblem
+- Gave the Abyssal Anomaly an attack
+
+(3/5/2020)
+- Added Abyssal damage
+- Added the Abyssal Breastplate
+- Added Spirit Meter (WIP)
+
+(3/4/2020)
+- Added dusts to the Abyssal Tome and the Void Seer's Mallet
+
+(3/3/2020)
+- Changed how Abyssal Tome works
+- Nerfed the Void Seer's Mallet's pierce to 2
+- Made the Void Eater on par with the other luminite picks
+
+(3/1/2020)
+- Added Abyssal Tome
+- Gave all weapons sold by the Abyssal Mage inflict (temporary) Cursed Inferno or Ichor 
+- Changed Abyssal Tome Sprite
+- Added the Void Eater, a post Moon Lord pickaxe; Cheater's item, use at your own risk
+
 (2/28/2020)
 - Removed all the spears
 - Added the Void Seer's Mallet (Magic weapon)
