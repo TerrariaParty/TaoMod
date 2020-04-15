@@ -20,10 +20,12 @@ namespace TaoMod
 		public bool abyssalDebuff;
 		public bool VoidGazersMirror;
 		public bool riftMinion;
+		public bool HasSoulbinder;
 		public override void ResetEffects() {
 			ResetVariables();
 			abyssalDebuff = false;
 			riftMinion = false;
+			HasSoulbinder = false;
 		}
 
 		private void AddStartItem(ref IList<Item> items, int itemType, int stack = 1)
@@ -62,6 +64,31 @@ namespace TaoMod
 				// lifeRegen is measured in 1/2 life per second. Therefore, this effect causes 8 life lost per second.
 				player.lifeRegen -= 20;
 			}
+		}
+		public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit)
+		{
+			if (Main.LocalPlayer.GetModPlayer<TaoPlayer>().HasSoulbinder == true)
+			{
+				//Adds OnFire for 5 seconds
+				int amountToHeal = Main.rand.Next(1, 10); // Heal half of damage dealt.
+				if (amountToHeal + player.statLife > player.statLifeMax2)
+					amountToHeal = player.statLifeMax - player.statLife; // If healing is larger than health currently missing.
+				player.statLife += amountToHeal;
+				player.HealEffect(amountToHeal, true);
+			}
+			base.OnHitNPC(item, target, damage, knockback, crit);
+		}
+		public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
+		{
+			if (Main.LocalPlayer.GetModPlayer<TaoPlayer>().HasSoulbinder == true)
+			{
+				int amountToHeal = Main.rand.Next(1, 10); // Heal half of damage dealt.
+				if (amountToHeal + player.statLife > player.statLifeMax2)
+					amountToHeal = player.statLifeMax - player.statLife; // If healing is larger than health currently missing.
+				player.statLife += amountToHeal;
+				player.HealEffect(amountToHeal, true);
+			}
+			base.OnHitNPCWithProj(proj, target, damage, knockback, crit);
 		}
 	}
 }
