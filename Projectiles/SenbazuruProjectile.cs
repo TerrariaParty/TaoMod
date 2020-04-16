@@ -26,6 +26,7 @@ namespace TaoMod.Projectiles
 		}
 		private bool BouncedOnce;
 		private int StopFuckingMovingBitch = 0;
+		private bool StartedTimeLeft;
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
 			if (BouncedOnce == false)
@@ -48,7 +49,11 @@ namespace TaoMod.Projectiles
 			if (BouncedOnce == true && StopFuckingMovingBitch > 4)
 			{
 				projectile.velocity = Vector2.Zero;
+			}
+			if(projectile.velocity == Vector2.Zero && StartedTimeLeft == false)
+			{
 				projectile.timeLeft = 600;
+				StartedTimeLeft = true;
 			}
 			return false;
 		}
