@@ -22,6 +22,7 @@ namespace TaoMod.Items.Materials
 			item.value = 0;
 			item.scale = 0.8f;
 			item.rare = -12;
+			item.expertOnly = true;
 		}
     }
 }

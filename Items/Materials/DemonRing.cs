@@ -33,7 +33,7 @@ namespace TaoMod.Items.Materials
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
-            recipe = new ModRecipe(mod);
+            		recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.AdamantiteBar, 1);
 			recipe.AddIngredient(ItemID.HallowedBar, 1);
 			recipe.AddIngredient(ItemID.SoulofFright, 5);

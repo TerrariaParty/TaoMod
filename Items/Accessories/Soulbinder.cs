@@ -11,16 +11,14 @@ namespace TaoMod.Items.Accessories
 		public override void SetStaticDefaults() {
 
 			DisplayName.SetDefault("The Soulbinder");
-			Tooltip.SetDefault("[c/ffe62d:Harvest their souls]"
-					+ "\n[c/ffe62d:Reduces damage dealt by 35%]"
-					+ "\n[c/ffe62d:You heal after hitting an enemy]");
+			Tooltip.SetDefault("'Harvest their souls'\nReduces damage dealt by 35%\nYou heal after hitting an enemy");
 
 		}
 		public override void SetDefaults() {
 			item.width = 28;
 			item.height = 30;
 			item.accessory = true;
-			item.rare = 8;
+			item.rare = -12;
 			item.maxStack = 1;
 			item.value = Item.sellPrice(gold: 15);
 			item.expertOnly = true;
@@ -41,6 +39,7 @@ namespace TaoMod.Items.Accessories
 			recipe.AddIngredient(mod, "SoulStone");
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.SetResult(this);
+			recipe.AddRecipe();
 		}
 
 		}
