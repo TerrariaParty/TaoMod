@@ -1,10 +1,7 @@
-using TaoMod.Projectiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-using static Terraria.ModLoader.ModContent;
-
 namespace TaoMod.Items.Weapons
 {
 	public class VoidRifle : ModItem
@@ -47,7 +44,21 @@ namespace TaoMod.Items.Weapons
 			{
 				position += muzzleOffset;
 			}
-			return true;
+			int numberProjectiles = 1 + Main.rand.Next(2); // 4 or 5 shots
+			for (int i = 0; i < numberProjectiles; i++)
+			{
+				Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(5));
+				Vector2 singleSpeed = new Vector2(speedX, speedY);
+				if (numberProjectiles == 2)
+				{                                                                                            
+					Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+				}
+				else
+				{
+					Projectile.NewProjectile(position.X, position.Y, singleSpeed.X, singleSpeed.Y, type, damage, knockBack, player.whoAmI);
+				}
+			}
+			return false;
 		}
 		public override Vector2? HoldoutOffset()
 		{
