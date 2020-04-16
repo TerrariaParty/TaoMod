@@ -117,30 +117,6 @@ namespace TaoMod.NPCs.Shaoyang
 						}
 						DoOrb = 0;
 					}
-					if (DashDuration > 0)
-						LightTrailTimer++;
-					}
-					if (LightTrailTimer >= 3)
-					{
-						Projectile.NewProjectile(npc.Center, lightTrailVelocity, ModContent.ProjectileType<LightTrail>(), 10, 0f);
-						LightTrailTimer = 0;
-					}
-					DashDuration--;
-					if (++DashTimer % 180 == 0)
-					{
-						if (DashDuration < 0)
-						{
-							Main.PlaySound(new LegacySoundStyle(SoundID.Roar, 0), npc.Center);
-							DashDuration = 100;
-							npc.DirectionTo(Main.player[npc.target].Center);
-							npc.velocity = npc.DirectionTo(Main.player[npc.target].Center) * dashVelocity;
-						}
-					}
-
-					if (DashTimer > 0 && DashDuration == 0)
-					{
-						npc.velocity = npc.DirectionTo(Main.player[npc.target].Center) * stillVelocity;
-					}
 					if (DoSpear % 300 == 0)
 					{
 						ShootSpear++;
@@ -158,6 +134,31 @@ namespace TaoMod.NPCs.Shaoyang
 							ShootSpear = 0;
 						}
 						DoSpear = 0;
+					}
+					if (DashDuration > 0)
+					{
+						LightTrailTimer++;
+					}
+					if (LightTrailTimer >= 3)
+					{
+						Projectile.NewProjectile(npc.Center, lightTrailVelocity, ModContent.ProjectileType<LightTrail>(), 10, 0f);
+						LightTrailTimer = 0;
+					}
+					DashTimer++;
+					DashDuration--;
+					if (++DashTimer % 180 == 0)
+					{
+						if (DashDuration < 0)
+						{
+							DashDuration = 100;
+							Main.PlaySound(new LegacySoundStyle(SoundID.Roar, 0), npc.Center);
+							npc.DirectionTo(Main.player[npc.target].Center);
+							npc.velocity = npc.DirectionTo(Main.player[npc.target].Center) * dashVelocity;
+						}
+					}
+					if (DashTimer > 0 && DashDuration == 0)
+					{
+						npc.velocity = npc.DirectionTo(Main.player[npc.target].Center) * stillVelocity;
 					}
 				}
 			}
@@ -188,11 +189,8 @@ namespace TaoMod.NPCs.Shaoyang
 					Projectile.NewProjectile(npc.Center, lightTrailVelocity, ModContent.ProjectileType<LightTrail>(), 10, 0f);
 					LightTrailTimer = 0;
 				}
-
 				DashTimer++;
-
 				DashDuration--;
-
 				if (++DashTimer % 300 == 0)
 				{
 					if (DashDuration < 0)
