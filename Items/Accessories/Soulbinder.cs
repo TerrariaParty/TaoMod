@@ -39,6 +39,7 @@ namespace TaoMod.Items.Accessories
 			recipe.AddIngredient(mod, "SoulStone");
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.SetResult(this);
+			recipe.AddRecipe();
 		}
 
 		}
