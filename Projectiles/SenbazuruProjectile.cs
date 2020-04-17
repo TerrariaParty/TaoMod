@@ -16,7 +16,7 @@ namespace TaoMod.Projectiles
 			projectile.thrown = true;
 			projectile.width = 52;
 			projectile.height = 42;
-			projectile.aiStyle = 1;
+			projectile.aiStyle = 0;
 			projectile.ignoreWater = false;
 			projectile.friendly = true;
 			projectile.hostile = false;

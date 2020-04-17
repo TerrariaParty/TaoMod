@@ -78,7 +78,6 @@ namespace TaoMod.NPCs.Shaoyang
 		private int DashTimer = 0;
 		private Vector2 speed = new Vector2(65);
 		private Vector2 lightTrailVelocity = new Vector2(0);
-		private int dashVelocity = 10;
 		private int DashDuration = 0;
 		private int stillVelocity = 1;
 		private int LightTrailTimer = 0;
@@ -153,12 +152,12 @@ namespace TaoMod.NPCs.Shaoyang
 							DashDuration = 100;
 							Main.PlaySound(new LegacySoundStyle(SoundID.Roar, 0), npc.Center);
 							npc.DirectionTo(Main.player[npc.target].Center);
-							npc.velocity = npc.DirectionTo(Main.player[npc.target].Center) * dashVelocity;
+							npc.velocity = npc.DirectionTo(Main.player[npc.target].Center) * speed;
 						}
 					}
 					if (DashTimer > 0 && DashDuration == 0)
 					{
-						npc.velocity = npc.DirectionTo(Main.player[npc.target].Center) * stillVelocity;
+						//npc.velocity = npc.DirectionTo(Main.player[npc.target].Center) * stillVelocity;
 					}
 				}
 			}
@@ -198,7 +197,7 @@ namespace TaoMod.NPCs.Shaoyang
 						DashDuration = 180;
 						Main.PlaySound(new LegacySoundStyle(SoundID.Roar, 0), npc.Center);
 						npc.DirectionTo(Main.player[npc.target].Center);
-						npc.velocity = npc.DirectionTo(Main.player[npc.target].Center) * dashVelocity;
+						npc.velocity = npc.DirectionTo(Main.player[npc.target].Center) * speed;
 					}
 				}
 				if (DashTimer > 0 && DashDuration == 0)
