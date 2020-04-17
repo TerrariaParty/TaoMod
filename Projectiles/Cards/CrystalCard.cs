@@ -18,7 +18,7 @@ namespace TaoMod.Projectiles.Cards
 			projectile.friendly = true;
 			projectile.timeLeft = 600;
 			projectile.tileCollide = false;
-			projectile.maxPenetrate = 5;
+			projectile.penetrate = -1;
 		}
 		public override void AI()
 		{
