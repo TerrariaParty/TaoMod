@@ -20,7 +20,6 @@ namespace TaoMod.Projectiles.Minions
 		public override void SetStaticDefaults() {
 			Main.projFrames[projectile.type] = 3;
 			Main.projPet[projectile.type] = true;
-			ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
 			ProjectileID.Sets.Homing[projectile.type] = true;
 			ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true; //This is necessary for right-click targeting
         }

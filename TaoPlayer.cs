@@ -1,14 +1,10 @@
 using Terraria;
-using Terraria.ID;
-using TaoMod.Items.Accessories;
-using TaoMod.Buffs;
 using Terraria.ModLoader;
-using System.Threading.Tasks;
-using TaoMod.UI;
 using System.Collections.Generic;
-using System.Linq;
 using TaoMod.Items.Consumables;
 using System;
+using TaoMod.Projectiles.Cards;
+using static Terraria.ModLoader.ModContent;
 
 namespace TaoMod
 {
