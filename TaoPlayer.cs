@@ -1,9 +1,11 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using TaoMod.Items.Consumables;
 using System;
 using TaoMod.Projectiles.Cards;
+using TaoMod.Buffs;
 using static Terraria.ModLoader.ModContent;
 
 namespace TaoMod
@@ -14,15 +16,19 @@ namespace TaoMod
 			return player.GetModPlayer<TaoPlayer>();
 		}
 		public bool abyssalDebuff;
+		public bool pcBleeding;
 		public bool VoidGazersMirror;
 		public bool riftMinion;
 		public bool HasSoulbinder;
+		public bool HasBloodDagger;
 		public override void ResetEffects() {
 			ResetVariables();
 			abyssalDebuff = false;
 			riftMinion = false;
 			HasSoulbinder = false;
-		}
+			HasBloodDagger = false;
+			pcBleeding = false;
+	}
 
 		private void AddStartItem(ref IList<Item> items, int itemType, int stack = 1)
 		{
@@ -72,7 +78,14 @@ namespace TaoMod
 				player.statLife += amountToHeal;
 				player.HealEffect(amountToHeal, true);
 			}
-			base.OnHitNPC(item, target, damage, knockback, crit);
+			if (Main.LocalPlayer.GetModPlayer<TaoPlayer>().HasBloodDagger == true)
+			{
+				if (player.HeldItem.melee)
+				{
+					target.AddBuff(ModContent.BuffType<Bleedingg>(), 600);
+				}
+			}
+					base.OnHitNPC(item, target, damage, knockback, crit);
 		}
 		public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
 		{
@@ -84,6 +97,13 @@ namespace TaoMod
 				}
 				player.statLife += amountToHeal;
 				player.HealEffect(amountToHeal, true);
+			}
+			if (Main.LocalPlayer.GetModPlayer<TaoPlayer>().HasBloodDagger == true)
+			{
+				if (player.HeldItem.melee)
+				{
+					target.AddBuff(ModContent.BuffType<Bleedingg>(), 600);
+				}
 			}
 			base.OnHitNPCWithProj(proj, target, damage, knockback, crit);
 		}
