@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\4567j\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\TaoMod\\TaoMod.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\4567j\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+    "C:\\Users\\Luan Paul\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\TaoMod\\TaoMod.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Luan Paul\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\TaoMod\\TaoMod.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Luan Paul\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\TaoMod\\TaoMod.csproj",
+        "projectName": "TerrasMod",
+        "projectPath": "C:\\Users\\Luan Paul\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\TaoMod\\TaoMod.csproj",
+        "packagesPath": "C:\\Users\\Luan Paul\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Luan Paul\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\TaoMod\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Luan Paul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> f7f2781ffbda048b1d6d1b09187dc169818e1dfb
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -37,7 +54,11 @@
       },
       "frameworks": {
         "net45": {
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+>>>>>>> f7f2781ffbda048b1d6d1b09187dc169818e1dfb
         }
       }
     }

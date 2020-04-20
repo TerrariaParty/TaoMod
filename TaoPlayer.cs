@@ -1,9 +1,16 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using TaoMod.Items.Consumables;
 using System;
+<<<<<<< HEAD
 using TaoMod.Items.Weapons;
+=======
+using TaoMod.Projectiles.Cards;
+using TaoMod.Buffs;
+using static Terraria.ModLoader.ModContent;
+>>>>>>> f7f2781ffbda048b1d6d1b09187dc169818e1dfb
 
 namespace TaoMod
 {
@@ -13,20 +20,26 @@ namespace TaoMod
 			return player.GetModPlayer<TaoPlayer>();
 		}
 		public bool abyssalDebuff;
+		public bool pcBleeding;
 		public bool VoidGazersMirror;
 		public bool riftMinion;
 		public bool HasSoulbinder;
+<<<<<<< HEAD
 		public int cardsCurrent;
 		public const int DefaultCardsMax = 10;
 		public int cardsMax;
 		public int cardsMax2;
 		public float cardsRegenRate;
 		internal int cardsRegenTimer = 0;
+=======
+		public bool HasBloodDagger;
+>>>>>>> f7f2781ffbda048b1d6d1b09187dc169818e1dfb
 		public override void ResetEffects() {
 			ResetVariables();
 			abyssalDebuff = false;
 			riftMinion = false;
 			HasSoulbinder = false;
+<<<<<<< HEAD
 		}
 		public override void Initialize()
 		{
@@ -55,6 +68,11 @@ namespace TaoMod
 					cardsCurrent += 1;
 					cardsRegenTimer = 0;
 				}
+=======
+			HasBloodDagger = false;
+			pcBleeding = false;
+	}
+>>>>>>> f7f2781ffbda048b1d6d1b09187dc169818e1dfb
 
 				// Limit exampleResourceCurrent from going over the limit imposed by exampleResourceMax.
 				cardsCurrent = Utils.Clamp(cardsCurrent, 0, cardsMax2);
@@ -105,7 +123,14 @@ namespace TaoMod
 				player.statLife += amountToHeal;
 				player.HealEffect(amountToHeal, true);
 			}
-			base.OnHitNPC(item, target, damage, knockback, crit);
+			if (Main.LocalPlayer.GetModPlayer<TaoPlayer>().HasBloodDagger == true)
+			{
+				if (player.HeldItem.melee)
+				{
+					target.AddBuff(ModContent.BuffType<Bleedingg>(), 600);
+				}
+			}
+					base.OnHitNPC(item, target, damage, knockback, crit);
 		}
 		public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
 		{
@@ -117,6 +142,13 @@ namespace TaoMod
 				}
 				player.statLife += amountToHeal;
 				player.HealEffect(amountToHeal, true);
+			}
+			if (Main.LocalPlayer.GetModPlayer<TaoPlayer>().HasBloodDagger == true)
+			{
+				if (player.HeldItem.melee)
+				{
+					target.AddBuff(ModContent.BuffType<Bleedingg>(), 600);
+				}
 			}
 			base.OnHitNPCWithProj(proj, target, damage, knockback, crit);
 		}

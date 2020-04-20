@@ -20,11 +20,13 @@ class TaoGlobalNPC : GlobalNPC
 	}
 	public bool abyssalDebuff = false;
 	public bool earthDebuff = false;
+	public bool pcBleeding = false;
 	public override bool InstancePerEntity => true;
 	    public override void ResetEffects(NPC npc)
         {
 			abyssalDebuff = false;
 			earthDebuff = false;
+			pcBleeding = false;
         }
  
         public override void UpdateLifeRegen(NPC npc, ref int damage) {
@@ -34,5 +36,9 @@ class TaoGlobalNPC : GlobalNPC
 			if (earthDebuff){
 				npc.lifeRegen -= 10;
 			}
+			if (pcBleeding)
+		{
+			npc.lifeRegen -= 30;
+		}
 		}
 }
