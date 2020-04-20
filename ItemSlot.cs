@@ -1,10 +1,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using Terraria.UI;
 using Terraria;
 using ReLogic.Graphics;
-using Terraria.ID;
 
 namespace TaoMod
 {

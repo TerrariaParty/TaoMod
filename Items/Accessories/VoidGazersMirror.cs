@@ -1,8 +1,5 @@
 using Terraria;
-using TaoMod;
-using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Utilities;
 
 namespace TaoMod.Items.Accessories
 {
