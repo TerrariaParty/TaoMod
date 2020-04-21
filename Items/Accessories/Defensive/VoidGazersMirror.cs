@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace TaoMod.Items.Accessories
+namespace TaoMod.Items.Accessories.Defensive
 {
 	public class VoidGazersMirror : ModItem
 	{

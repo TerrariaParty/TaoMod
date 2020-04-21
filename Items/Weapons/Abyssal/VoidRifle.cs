@@ -2,7 +2,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-namespace TaoMod.Items.Weapons
+
+namespace TaoMod.Items.Weapons.Abyssal
 {
 	public class VoidRifle : ModItem
 	{

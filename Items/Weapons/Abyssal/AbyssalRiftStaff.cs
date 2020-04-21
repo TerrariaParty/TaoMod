@@ -6,7 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace TaoMod.Items.Weapons
+namespace TaoMod.Items.Weapons.Abyssal
 {
 	public class AbyssalRiftStaff : ModItem
 	{

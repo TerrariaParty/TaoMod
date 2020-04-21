@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using Terraria.Utilities;
 using TaoMod;
 
-namespace TaoMod.Items.Accessories
+namespace TaoMod.Items.Accessories.Magic
 {
 	[AutoloadEquip(EquipType.Neck)]
 	public class MoonStoneNecklace : ModItem
