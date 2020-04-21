@@ -27,7 +27,7 @@ namespace TaoMod.Projectiles.Cards
 			if (projectile.frameCounter >= 9)
 			{
 				projectile.frameCounter = 0;
-				projectile.frame = (projectile.frame + 1) % 3;
+				projectile.frame = (projectile.frame + 1);
 			}
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

@@ -3,13 +3,13 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TaoMod.Projectiles.Cards;
-using TaoMod;
 using static Terraria.ModLoader.ModContent;
 
 namespace TaoMod.Items.Weapons
 {
     class TheGamblersFullDeck : ModItem
     {
+        public int cardtossCost = 1;
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("The Gambler's Full Deck");
@@ -34,32 +34,14 @@ namespace TaoMod.Items.Weapons
             item.knockBack = 2f;
             item.shoot = 10;
         }
-        public int numberofCards = 10;
-        public Color red = new Color(255, 0, 0);
-        public Color white = new Color(255, 255, 255);
         public Color blue = new Color(0, 0, 255);
-        public Color green = new Color(0, 255, 70);
-        public int drawCard = 0;
-        public int ShutUpIKnowIHaveNoCards = 0;
-        public override void HoldItem(Player player)
-        {
-            drawCard++;
-            if (drawCard >= 80)
-            {
-                if (numberofCards != 10)
-                { 
-                    CombatText.NewText(player.getRect(), green, "Drew 1 card!", false);
-                    numberofCards += 1;
-                }
-                drawCard = 0;
-            }
-        }
         public override bool AltFunctionUse(Player player)
         {
             return true;
         }
         public override bool CanUseItem(Player player)
         {
+            var taoPlayer = player.GetModPlayer<TaoPlayer>();
             if (player.altFunctionUse == 2)
             {
                 item.useStyle = 1;
@@ -70,31 +52,32 @@ namespace TaoMod.Items.Weapons
             }
             else
             {
+                if (taoPlayer.cardsCurrent >= cardtossCost)
+                {
+                    taoPlayer.cardsCurrent -= 1;
+                    return true;
+                }
                 item.useStyle = 1;
                 item.useTime = 15;
                 item.useAnimation = 15;
                 item.damage = 50;
                 item.shoot = 10;
             }
-            if(numberofCards == 0)
+            if (taoPlayer.cardsCurrent == 0)
             {
-                ShutUpIKnowIHaveNoCards--;
-                if (ShutUpIKnowIHaveNoCards <= 0)
-                {
-                    CombatText.NewText(player.getRect(), red, "No cards!", true);
-                    ShutUpIKnowIHaveNoCards = 30;
-                }
                 return false;
             }
             return base.CanUseItem(player);
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            if(player.altFunctionUse == 2)
+            var taoPlayer = player.GetModPlayer<TaoPlayer>();
+            if (player.altFunctionUse == 2)
             {
                 CombatText.NewText(player.getRect(), blue, "Oops! That's All My Deck", true);
+                int numberProjectiles = taoPlayer.cardsCurrent;
                 type = Main.rand.Next(new int[] { ProjectileType<SpadeCard>(), ProjectileType<HeartCard>(), ProjectileType<CrystalCard>(), ProjectileType<IchorCard>(), ProjectileType<CursedCard>() });
-                for (int i = 0; i < numberofCards; i++)
+                for (int i = 0; i < numberProjectiles; i++)
                 {
                     Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(65)); // 30 degree spread.
                                                                                                                     // If you want to randomize the speed to stagger the projectiles
@@ -102,14 +85,13 @@ namespace TaoMod.Items.Weapons
                     perturbedSpeed = perturbedSpeed * scale;
                     Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
                 }
-                numberofCards -= numberofCards;
+
+                taoPlayer.cardsCurrent -= taoPlayer.cardsCurrent;
                 return false;
             }
             else {
                 type = Main.rand.Next(new int[] { ProjectileType<SpadeCard>(), ProjectileType<HeartCard>(), ProjectileType<CrystalCard>(), ProjectileType<IchorCard>(), ProjectileType<CursedCard>() });
                 Projectile.NewProjectile(player.position, Main.MouseWorld, type, 50, 2f, Main.myPlayer);
-                numberofCards -= 1;
-                CombatText.NewText(player.getRect(), white, numberofCards + " cards left!", false);
                 return true;
             }
         }

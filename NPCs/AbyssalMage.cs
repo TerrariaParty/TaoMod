@@ -1,12 +1,9 @@
-using System;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using TaoMod.Items.Materials;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
-using TaoMod.Items.Accessories;
 
 
 namespace TaoMod.NPCs
