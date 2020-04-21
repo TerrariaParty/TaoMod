@@ -4,13 +4,10 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using TaoMod.Items.Consumables;
 using System;
-<<<<<<< HEAD
 using TaoMod.Items.Weapons;
-=======
 using TaoMod.Projectiles.Cards;
 using TaoMod.Buffs;
 using static Terraria.ModLoader.ModContent;
->>>>>>> f7f2781ffbda048b1d6d1b09187dc169818e1dfb
 
 namespace TaoMod
 {
@@ -24,26 +21,19 @@ namespace TaoMod
 		public bool VoidGazersMirror;
 		public bool riftMinion;
 		public bool HasSoulbinder;
-<<<<<<< HEAD
 		public bool HasMoonNecklace;
-=======
-<<<<<<< HEAD
 		public int cardsCurrent;
 		public const int DefaultCardsMax = 10;
 		public int cardsMax;
 		public int cardsMax2;
 		public float cardsRegenRate;
 		internal int cardsRegenTimer = 0;
-=======
->>>>>>> 8ec6fcf3847a14713089b3b0373ce5fd78778f31
 		public bool HasBloodDagger;
->>>>>>> f7f2781ffbda048b1d6d1b09187dc169818e1dfb
 		public override void ResetEffects() {
 			ResetVariables();
 			abyssalDebuff = false;
 			riftMinion = false;
 			HasSoulbinder = false;
-<<<<<<< HEAD
 		}
 		public override void Initialize()
 		{
@@ -72,12 +62,6 @@ namespace TaoMod
 					cardsCurrent += 1;
 					cardsRegenTimer = 0;
 				}
-=======
-			HasBloodDagger = false;
-			pcBleeding = false;
-			HasMoonNecklace = false;
-	}
->>>>>>> f7f2781ffbda048b1d6d1b09187dc169818e1dfb
 
 				// Limit exampleResourceCurrent from going over the limit imposed by exampleResourceMax.
 				cardsCurrent = Utils.Clamp(cardsCurrent, 0, cardsMax2);
