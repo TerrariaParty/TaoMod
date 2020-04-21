@@ -22,7 +22,6 @@ namespace TaoMod.Items.Accessories
 			item.maxStack = 1;
 			item.value = Item.sellPrice(gold: 15);
 			item.expertOnly = true;
-			item.alpha = 55;
 		}
 		public override void UpdateEquip(Player player)
 		{
