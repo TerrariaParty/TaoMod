@@ -62,10 +62,13 @@ namespace TaoMod
 					cardsCurrent += 1;
 					cardsRegenTimer = 0;
 				}
+<<<<<<< HEAD
 			HasBloodDagger = false;
 			pcBleeding = false;
 			HasMoonNecklace = false;
 	}
+=======
+>>>>>>> 4da40edda57c57ceee6f52a44c3f4b041aead3da
 
 				// Limit exampleResourceCurrent from going over the limit imposed by exampleResourceMax.
 				cardsCurrent = Utils.Clamp(cardsCurrent, 0, cardsMax2);
