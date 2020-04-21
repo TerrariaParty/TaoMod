@@ -20,6 +20,7 @@ namespace TaoMod
 		public bool VoidGazersMirror;
 		public bool riftMinion;
 		public bool HasSoulbinder;
+		public bool HasMoonNecklace;
 		public bool HasBloodDagger;
 		public override void ResetEffects() {
 			ResetVariables();
@@ -28,6 +29,7 @@ namespace TaoMod
 			HasSoulbinder = false;
 			HasBloodDagger = false;
 			pcBleeding = false;
+			HasMoonNecklace = false;
 	}
 
 		private void AddStartItem(ref IList<Item> items, int itemType, int stack = 1)
@@ -85,7 +87,17 @@ namespace TaoMod
 					target.AddBuff(ModContent.BuffType<Bleedingg>(), 600);
 				}
 			}
-					base.OnHitNPC(item, target, damage, knockback, crit);
+				if (Main.LocalPlayer.GetModPlayer<TaoPlayer>().HasMoonNecklace == true)
+				{
+					if (player.HeldItem.magic)
+					{
+						if (target.life <= 0)
+						{
+							player.statMana += Main.rand.Next(50, 86);
+						}
+					}
+				}
+				base.OnHitNPC(item, target, damage, knockback, crit);
 		}
 		public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
 		{
@@ -103,6 +115,16 @@ namespace TaoMod
 				if (player.HeldItem.melee)
 				{
 					target.AddBuff(ModContent.BuffType<Bleedingg>(), 600);
+				}
+			}
+			if (Main.LocalPlayer.GetModPlayer<TaoPlayer>().HasMoonNecklace == true)
+			{
+				if (player.HeldItem.magic)
+				{
+					if (target.life <= 0)
+					{
+						player.statMana += Main.rand.Next(50, 86);
+					}
 				}
 			}
 			base.OnHitNPCWithProj(proj, target, damage, knockback, crit);
