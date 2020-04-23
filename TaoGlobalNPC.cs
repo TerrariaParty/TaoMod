@@ -1,10 +1,8 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using TaoMod.Items.Accessories;
+using TaoMod.Items.Accessories.Other;
 using static Terraria.ModLoader.ModContent;
-using TaoMod.Buffs;
 
 class TaoGlobalNPC : GlobalNPC
 {
@@ -19,22 +17,17 @@ class TaoGlobalNPC : GlobalNPC
 		// Addtional if statements here if you would like to add drops to other vanilla npc.
 	}
 	public bool abyssalDebuff = false;
-	public bool earthDebuff = false;
 	public bool pcBleeding = false;
 	public override bool InstancePerEntity => true;
 	    public override void ResetEffects(NPC npc)
         {
 			abyssalDebuff = false;
-			earthDebuff = false;
 			pcBleeding = false;
         }
  
         public override void UpdateLifeRegen(NPC npc, ref int damage) {
 			if (abyssalDebuff){
 				npc.lifeRegen -= 20;
-			}
-			if (earthDebuff){
-				npc.lifeRegen -= 10;
 			}
 			if (pcBleeding)
 		{
