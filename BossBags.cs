@@ -1,4 +1,4 @@
-using TaoMod.Items.Accessories;
+using TaoMod.Items.Accessories.Other;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

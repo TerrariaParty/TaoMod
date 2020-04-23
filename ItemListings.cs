@@ -29,5 +29,5 @@ namespace TaoMod
          scrolls.Add(ItemType<Items.Scrolls.ShortswordScroll>());
          return scrolls;
       }
-}
+   }
 }
