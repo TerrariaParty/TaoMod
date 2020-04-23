@@ -36,5 +36,5 @@ namespace TaoMod.Items.Materials
     }
 }
 
-//"Sad Twins Noises"
+//Just so it has a reason to a scroll, a belt and a scarf become a cape
 
