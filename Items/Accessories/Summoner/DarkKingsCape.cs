@@ -12,7 +12,7 @@ namespace TaoMod.Items.Accessories.Summoner
 		public override void SetStaticDefaults() {
 
 			DisplayName.SetDefault("Dark King's Cape");
-			Tooltip.SetDefault("'Once worn by the shadow tyrant, now it's yours'\nYou are powerful during the night, but weak when the sun is out\nGives a chance to dodge attacks\nIncreases your max number of minions");
+			Tooltip.SetDefault("'Once worn by the shadow tyrant, now it's yours'\nYou are powerful during the night, but weak when the sun is out\nReduces damage taken by 12%\nIncreases your max number of minions\nGives a chance to dodge attacks");
 
 		}
 		public override void SetDefaults() {
