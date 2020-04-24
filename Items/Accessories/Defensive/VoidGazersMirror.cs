@@ -6,7 +6,8 @@ namespace TaoMod.Items.Accessories.Defensive
 	public class VoidGazersMirror : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Gaze into the void and witness your true intentions'\nSummons rotating abyssal mirror shields that will protect you");
+			DisplayName.SetDefault("Void Gazer's Mirror");
+			Tooltip.SetDefault("'Gaze into the void and witness your true self'\nSummons your shadow to protect you");
 		}
 
 		public override void SetDefaults() {
@@ -18,7 +19,7 @@ namespace TaoMod.Items.Accessories.Defensive
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual) {
-			player.GetModPlayer<TaoPlayer>().VoidGazersMirror = true;
+			player.GetModPlayer<TaoPlayer>().HasVoidGazersMirror = true;
 		}
 	}
 }

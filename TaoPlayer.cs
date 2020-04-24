@@ -18,17 +18,22 @@ namespace TaoMod
 		}
 		public bool abyssalDebuff;
 		public bool pcBleeding;
-		public bool VoidGazersMirror;
+		public bool HasVoidGazersMirror;
 		public bool riftMinion;
 		public bool HasSoulbinder;
 		public bool HasMoonNecklace;
+		public bool HasBloodDagger;
 		public int cardsCurrent;
 		public const int DefaultCardsMax = 10;
 		public int cardsMax;
 		public int cardsMax2;
 		public float cardsRegenRate;
 		internal int cardsRegenTimer = 0;
-		public bool HasBloodDagger;
+		public const int DefaultInsanityMax = 50;
+		public int insanityMax;
+		public int insanityMax2;
+		public float insanityRegenRate;
+		internal int insanityRegenTimer = 0;
 		public override void ResetEffects() {
 			ResetVariables();
 			abyssalDebuff = false;
