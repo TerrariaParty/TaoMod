@@ -1,8 +1,7 @@
+using TaoMod.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Utilities;
-using TaoMod.Items.Materials;
 
 namespace TaoMod.Items.Accessories.Summoner
 {
@@ -45,7 +44,7 @@ namespace TaoMod.Items.Accessories.Summoner
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod, "DarkCloth", 10);
+			recipe.AddIngredient(ModContent.ItemType<DarkCloth>(), 10);
 			recipe.AddIngredient(ItemID.WormScarf);
 			recipe.AddIngredient(ItemID.NecromanticScroll);
 			recipe.AddIngredient(ItemID.BlackBelt);

@@ -1,8 +1,6 @@
+using TaoMod.PartialPlayerClasses;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Utilities;
-using TaoMod;
 
 namespace TaoMod.Items.Accessories.Other
 {
@@ -20,7 +18,7 @@ namespace TaoMod.Items.Accessories.Other
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual) {
-			TaoPlayer modPlayer = TaoPlayer.ModPlayer(player);
+			player.GetModPlayer<TaoPlayer>().HasVoidGazersMirror = true;
 		}
 	}
 }

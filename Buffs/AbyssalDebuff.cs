@@ -1,4 +1,4 @@
-using TaoMod;
+using TaoMod.PartialPlayerClasses;
 using Terraria;
 using Terraria.ModLoader;
 

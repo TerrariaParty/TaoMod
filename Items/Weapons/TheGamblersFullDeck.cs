@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using TaoMod.Projectiles.Cards;
 using static Terraria.ModLoader.ModContent;
+using TaoMod.PartialPlayerClasses;
 
 namespace TaoMod.Items.Weapons
 {

@@ -10,7 +10,7 @@ namespace TaoMod.PartialPlayerClasses
 		public bool HasSoulbinder;
 		public bool HasMoonNecklace;
 		public bool HasBloodDagger;
-	
+		public bool HasEnchantedScabbard;
 		public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit)
 		{
 			if (Main.LocalPlayer.GetModPlayer<TaoPlayer>().HasSoulbinder == true)
@@ -46,7 +46,8 @@ namespace TaoMod.PartialPlayerClasses
 			if (Main.LocalPlayer.GetModPlayer<TaoPlayer>().HasSoulbinder == true)
 			{
 				int amountToHeal = Main.rand.Next(1, 10); // Heal 1 - 10 damage.
-				if (amountToHeal + player.statLife > player.statLifeMax2){
+				if (amountToHeal + player.statLife > player.statLifeMax2)
+				{
 					amountToHeal = player.statLifeMax2 - player.statLife; // If healing is larger than health currently missing.
 				}
 				player.statLife += amountToHeal;

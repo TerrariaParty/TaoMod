@@ -1,8 +1,7 @@
+using TaoMod.PartialPlayerClasses;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Utilities;
-using TaoMod;
 
 namespace TaoMod.Items.Accessories.Defensive
 {

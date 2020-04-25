@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using TaoMod.Items.Weapons;
+using TaoMod.PartialPlayerClasses;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.UI;

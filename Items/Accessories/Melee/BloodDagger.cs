@@ -1,8 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Utilities;
-using TaoMod;
+using TaoMod.PartialPlayerClasses;
 
 namespace TaoMod.Items.Accessories.Melee
 {
