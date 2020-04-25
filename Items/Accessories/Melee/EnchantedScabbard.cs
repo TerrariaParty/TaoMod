@@ -8,7 +8,7 @@ namespace TaoMod.Items.Accessories.Melee
 	{
 		public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault("Grants your melee weapons the ability to shoot an enchanted beam\n+20% melee speed");
+			Tooltip.SetDefault("1 defense\nGrants your melee weapons the ability to shoot an enchanted beam\n+20% melee speed");
 		}
 		public override void SetDefaults()
 		{

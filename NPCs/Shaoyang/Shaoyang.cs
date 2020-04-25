@@ -37,7 +37,7 @@ namespace TaoMod.NPCs.Shaoyang
 			npc.DeathSound = SoundID.NPCDeath27;
 			npc.alpha = 255;
 			//music = MusicID.Title;
-			//musicPriority = MusicPriority.BossMedium; 
+		    //musicPriority = MusicPriority.BossHigh; 
 			//bossBag = ItemType<ShaoyangBag>();
 		}
 
