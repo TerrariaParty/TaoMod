@@ -29,17 +29,17 @@ namespace TaoMod.PartialPlayerClasses
 					target.AddBuff(ModContent.BuffType<Bleedingg>(), 600);
 				}
 			}
-				if (Main.LocalPlayer.GetModPlayer<TaoPlayer>().HasMoonNecklace == true)
+			if (Main.LocalPlayer.GetModPlayer<TaoPlayer>().HasMoonNecklace == true)
+			{
+				if (player.HeldItem.magic)
 				{
-					if (player.HeldItem.magic)
+					if (target.life <= 0)
 					{
-						if (target.life <= 0)
-						{
-							player.statMana += Main.rand.Next(50, 86);
-						}
+						player.statMana += Main.rand.Next(50, 86);
 					}
 				}
-				base.OnHitNPC(item, target, damage, knockback, crit);
+			}
+			base.OnHitNPC(item, target, damage, knockback, crit);
 		}
 		public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
 		{

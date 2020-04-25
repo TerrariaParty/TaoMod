@@ -19,6 +19,7 @@ namespace TaoMod.PartialPlayerClasses
 			HasBloodDagger = false;
 			HasVoidGazersMirror = false;
 			HasMoonNecklace = false;
+			HasEnchantedScabbard = false;
 			abyssalDebuff = false;
 			riftMinion = false;
 			pcBleeding = false;

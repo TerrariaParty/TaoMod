@@ -41,7 +41,10 @@ namespace TaoMod
 					}
 				}
 			}
-			return;
+			else
+			{
+				return;
+			}
 		}
 	}
 }
