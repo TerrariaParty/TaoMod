@@ -32,7 +32,7 @@ namespace TaoMod.Items.Materials
 			recipe.SetResult(this);
 			recipe.AddRecipe();
             recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemType<EssenceofYang>(), 4);
+            //recipe.AddIngredient(ItemType<CoreofYang>(), 4);
             recipe.AddIngredient(ItemID.LunarBar, 3);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this, 3);

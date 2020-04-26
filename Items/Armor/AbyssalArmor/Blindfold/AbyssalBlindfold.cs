@@ -44,7 +44,7 @@ namespace TaoMod.Items.Armor.AbyssalArmor.Blindfold
         }
 		public override void AddRecipes() {
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemType<EssenceofYin>(), 10);
+			recipe.AddIngredient(ItemType<WhisperingBar>(), 10);
             recipe.AddIngredient(ItemID.Silk, 24);
 			recipe.AddTile(TileID.Loom);
 			recipe.SetResult(this);

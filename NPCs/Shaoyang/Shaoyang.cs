@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 using Terraria.Audio;
 using TaoMod.Projectiles;
 using static Terraria.ModLoader.ModContent;
+using TaoMod.Items.Consumables;
 
 namespace TaoMod.NPCs.Shaoyang
 {
@@ -38,7 +39,7 @@ namespace TaoMod.NPCs.Shaoyang
 			npc.alpha = 255;
 			//music = MusicID.Title;
 		    //musicPriority = MusicPriority.BossHigh; 
-			//bossBag = ItemType<ShaoyangBag>();
+			bossBag = ItemType<ShaoyangTreasureBag>();
 		}
 
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
