@@ -52,12 +52,25 @@ namespace TaoMod.NPCs.Shaoyang
 		public override void HitEffect(int hitDirection, double damage)
 		{
 			if (npc.life <= 0)
+			{
 				Gore.NewGore(npc.position + new Vector2(10f, 0f), Vector2.Zero, Main.rand.Next(61, 63), 2f);
+			}
 		}
 
 		public override void NPCLoot()
 		{
-			Item.NewItem(npc.getRect(), ItemType<EssenceofYang>(), 10);
+			if (!Main.expertMode)
+			{
+				Item.NewItem(npc.getRect(), ItemType<EssenceofYang>(), Main.rand.Next(4,9));
+			}
+			if (!TaoWorld.downedShaoyang)
+			{
+				TaoWorld.downedShaoyang = true;
+				if (Main.netMode == NetmodeID.Server)
+				{
+					NetMessage.SendData(MessageID.WorldData); // Immediately inform clients of new world state.
+				}
+			}
 		}
 
 		private int AlphaTimer = 0;
@@ -148,9 +161,9 @@ namespace TaoMod.NPCs.Shaoyang
 							npc.velocity = npc.DirectionTo(Main.player[npc.target].Center) * stillVelocity;
 						}
 					}
-					else if(npc.life < 201)
+					else if (npc.life < 201)
 					{
-						if(CreateOrbField == false)
+						if (CreateOrbField == false)
 						{
 							float numberProjectiles = 6;
 							float rotation = MathHelper.ToRadians(80);
