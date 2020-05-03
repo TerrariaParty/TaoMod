@@ -38,7 +38,7 @@ namespace TaoMod.Items.Accessories.Summoner
 			{
 				player.minionDamage -= 0.08f;
 				player.statDefense -= 15;
-				player.moveSpeed -= 0.25f;
+				player.AddBuff(BuffID.Dazed, 1);
 			}
 		}
 		public override void AddRecipes()
