@@ -9,7 +9,7 @@ namespace TaoMod.Projectiles
         {
             projectile.width = 24;
             projectile.height = 24;
-            projectile.aiStyle = ProjectileID.HallowStar;
+            projectile.aiStyle = ProjectileID.WoodenArrowFriendly;
             projectile.friendly = true;
             projectile.penetrate = 2;
             projectile.alpha = 50;
