@@ -1,4 +1,4 @@
-author = Terra, holeow, GlitchOut, Wispcream, Exitium
-version = 2.4.1.5
+author = Terra, holeow, GlitchOut, Agent6021, Exitium, Darkpuppey
+version = 2.4.1.6
 displayName = The Tao Mod
 homepage = https://forums.terraria.org/index.php?threads/the-tao-mod.86400/
