@@ -5,7 +5,7 @@ using TaoMod.NPCs.Shaoyang;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace TaoMod.Items
+namespace TaoMod.Items.Tools
 {
     public class TomeOfEndlessWisdom : ModItem
     {
