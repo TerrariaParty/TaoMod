@@ -97,7 +97,7 @@ namespace TaoMod.NPCs.Shaoyang
 
 			if (Main.expertMode)
 			{
-				if (npc.life > 4001)
+				if (npc.life > 3999)
 				{
 					npc.velocity = npc.DirectionTo(Main.player[npc.target].Center) * Phase1ChaseSpeed;
 					FunnyExplosionOrbTimer++;
@@ -126,7 +126,7 @@ namespace TaoMod.NPCs.Shaoyang
 						}
 						ShootSpear = 0;
 					}
-					else if (npc.life < 4001 && npc.life > 201)
+					else if (npc.life < 4001 && npc.life > 199)
 					{
 						if (DashDuration > 0)
 						{
@@ -207,7 +207,7 @@ namespace TaoMod.NPCs.Shaoyang
 			}
 			else
 			{
-				if (npc.life > 2001)
+				if (npc.life > 1999)
 				{
 					npc.velocity = npc.DirectionTo(Main.player[npc.target].Center) * Phase1ChaseSpeed;
 					FunnyExplosionOrbTimer++;
