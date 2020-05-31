@@ -26,10 +26,16 @@ namespace TaoMod.Items.Consumables
             //|| (!Main.dayTime && !NPC.AnyNPCs(NPCType<Shaoyin>())
         }
         public override bool UseItem(Player player){
-            if(Main.dayTime)NPC.SpawnOnPlayer(player.whoAmI, NPCType<Shaoyang>());
-            //else NPC.SpawnOnPlayer(player.whoAmI, NPCType<Shaoyin>());
+            if(Main.dayTime)
+	    {
+	    NPC.NewNPC((int)player.position.X, (int)player.position.Y - 80, NPCType<Shaoyang>());
+	    Main.NewText("Who has dared to challenge me? No matter, this will be your end, fool!");
+	    }
+            /*else
+	    {
+            NPC.SpawnOnPlayer(player.whoAmI, NPCType<Shaoyin>());
+	    }*/
             Main.PlaySound(SoundID.Roar, player.position, 0);
-            Main.NewText("Who has dared to challenge me? No matter, this will be your end, fool!");
             return true;
         }
         public override void AddRecipes(){
