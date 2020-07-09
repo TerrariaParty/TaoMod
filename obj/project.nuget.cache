@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "GZeLNSTPfosT2H9pbj4HNMJQx+iLVuKhZFNUblD8RCWUy5275nCKUcoFKldKXHKA2wRpebfm8/sfr9dkHunKvg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jac\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\TaoMod\\TaoMod.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jac\\.nuget\\packages\\tmodloader.codeassist\\0.1.1\\tmodloader.codeassist.0.1.1.nupkg.sha512"
+  ],
+  "logs": []
+}
