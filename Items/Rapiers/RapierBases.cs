@@ -7,6 +7,10 @@ using Terraria.ModLoader;
 namespace TaoMod.Items.Rapiers
 {
     //start of the rapier inheritance class
+
+    /// <summary>
+    /// Inherited class. Sets up the basics for a Rapier esc item.
+    /// </summary>
     public abstract class RapierBase : ModItem
     {
         public override void SetDefaults()
@@ -19,9 +23,21 @@ namespace TaoMod.Items.Rapiers
 
             base.SetDefaults();
         }
-        public virtual void RapierStats(int damage, int crit, float knockback, int useSpeed, int rarity, int value, bool autoReuse, int rapierProjectile, float rapierShootSpeed)
-        {
 
+        /// <summary>
+        /// Creates variables that set the customizable stats of the Rapier esc item.
+        /// </summary>
+        /// <param name="damage"></param>
+        /// <param name="crit"></param>
+        /// <param name="knockback"></param>
+        /// <param name="useSpeed"></param>
+        /// <param name="rarity"></param>
+        /// <param name="value"></param>
+        /// <param name="autoReuse"></param>
+        /// <param name="rapierProjectile"></param>
+        /// <param name="rapierShootSpeed"></param>
+        public virtual void RapierStats(int damage, int crit, float knockback, int useSpeed, int rarity, int value, bool autoReuse, int rapierProjectile, float rapierShootSpeed)
+        { 
             //sets the stats after variables are declared in the method body
             item.damage = damage;
             item.crit = crit;
@@ -62,6 +78,10 @@ namespace TaoMod.Items.Rapiers
     //credit to examplemod, chicken bones, joifarden, blushiemagic, and javidpack (the contributors to this file specifically, ExampleSpearProjectile.cs
     //seems as if spearcode did not work 
     //credit to dayork for below code
+
+    /// <summary>
+    /// Inherited class. Sets up the basics for a Rapier esc projectile.
+    /// </summary>
     public abstract class RapierProjBase : ModProjectile
     {
         public override void SetDefaults()
@@ -78,6 +98,10 @@ namespace TaoMod.Items.Rapiers
             projectile.friendly = true;
             base.SetDefaults();
         }
+        /// <summary>
+        /// Creates variables that set the customizable stats of the Rapier esc projectile.
+        /// </summary>
+        /// <param name="timeLeft"></param>
         public virtual void RapierProjStats(int timeLeft)
         {
             projectile.timeLeft = timeLeft;
@@ -108,17 +132,31 @@ namespace TaoMod.Items.Rapiers
             spriteBatch.Draw(texture, projectile.Center - Direction * rapierOffset - Main.screenPosition, null, lightColor, rotation, new Vector2(texture.Width >> 1, texture.Height >> 1), 1f, sfx, 1f);
 
         }
-        //moves at a rate of 1 pixel per tick
+        /// <summary>
+        /// Sets the rapier's movement to how ever many pixels per tick/frame.
+        /// </summary>
         public virtual float rapierMoveSpeed { get; } = 1f;
 
+        /// <summary>
+        /// Sets the rapier's draw offset. Used for moving the sprite so the hitbox can align with the tip.
+        /// </summary>
         public virtual int rapierOffset { get; } = 0;
 
+        /// <summary>
+        /// Sets the rapier's max distance before it stops.
+        /// </summary>
         public virtual bool HasPeaked => Distance >= 0f;
 
         public virtual float Distance { get; private set; }
 
+        /// <summary>
+        /// Sets the rapier's direction.
+        /// </summary>
         public Vector2 Direction { get; private set; }
 
+        /// <summary>
+        /// Sets the rapier's owner to the current client's player.
+        /// </summary>
         public Player Owner => Main.player[projectile.owner];
     }
 }
