@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -10,8 +11,12 @@ namespace TaoMod.Items.Rapiers
     {
         public override void SetDefaults()
         {
-            RapierStats(6, 0, 2.5f, 24, 0, 20, ProjectileType<WoodenRapierProj>(), 8f);
+            RapierStats(5, 0, 2.5f, 24, 0, 20, false, ProjectileType<WoodenRapierProj>(), 8f);
             base.SetDefaults();
+        }
+        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        {
+            return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
         }
         public override void AddRecipes()
         {

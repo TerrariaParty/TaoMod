@@ -13,14 +13,13 @@ namespace TaoMod.Items.Rapiers
         {
             //some defaults that cannot be changed
             item.useStyle = ItemUseStyleID.HoldingOut;
-            item.autoReuse = true;
             item.noUseGraphic = true;
             item.UseSound = SoundID.Item1;
             item.melee = true;
 
             base.SetDefaults();
         }
-        public virtual void RapierStats(int damage, int crit, float knockback, int useSpeed, int rarity, int value, int rapierProjectile, float rapierShootSpeed)
+        public virtual void RapierStats(int damage, int crit, float knockback, int useSpeed, int rarity, int value, bool autoReuse, int rapierProjectile, float rapierShootSpeed)
         {
 
             //sets the stats after variables are declared in the method body
@@ -33,6 +32,7 @@ namespace TaoMod.Items.Rapiers
             item.value = value;
             item.shoot = rapierProjectile;
             item.shootSpeed = rapierShootSpeed;
+            item.autoReuse = autoReuse;
         }
         public override bool CanUseItem(Player player)
         {
@@ -44,6 +44,16 @@ namespace TaoMod.Items.Rapiers
                           simply giving it the shortsword usestyle should be enough
             */
             return player.ownedProjectileCounts[item.shoot] < 1;
+        }
+        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        {
+            int numberProjectiles = 1;
+            for (int i = 0; i < numberProjectiles; i++)
+            {
+                Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(10));    
+                Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+            }
+            return false; 
         }
     }
 
