@@ -37,7 +37,7 @@ namespace TaoMod.Items.Rapiers
         /// <param name="rapierProjectile"></param>
         /// <param name="rapierShootSpeed"></param>
         public virtual void RapierStats(int damage, int crit, float knockback, int useSpeed, int rarity, int value, bool autoReuse, int rapierProjectile, float rapierShootSpeed)
-        { 
+        {
             //sets the stats after variables are declared in the method body
             item.damage = damage;
             item.crit = crit;
@@ -117,7 +117,7 @@ namespace TaoMod.Items.Rapiers
             projectile.Center = Owner.Center + Direction * Distance + new Vector2(0, Owner.gfxOffY);
 
             if (!HasPeaked)
-                Distance += rapierMoveSpeed;
+                Distance += RapierMoveSpeed;
         }
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor) => false;
 
@@ -129,18 +129,18 @@ namespace TaoMod.Items.Rapiers
 
             float rotation = Direction.X > 0 ? (Direction.ToRotation() + MathHelper.Pi * 1.25f) : (Direction.ToRotation() - MathHelper.Pi * 1.25f);
 
-            spriteBatch.Draw(texture, projectile.Center - Direction * rapierOffset - Main.screenPosition, null, lightColor, rotation, new Vector2(texture.Width >> 1, texture.Height >> 1), 1f, sfx, 1f);
+            spriteBatch.Draw(texture, projectile.Center - Direction * RapierOffset - Main.screenPosition, null, lightColor, rotation, new Vector2(texture.Width >> 1, texture.Height >> 1), 1f, sfx, 1f);
 
         }
         /// <summary>
         /// Sets the rapier's movement to how ever many pixels per tick/frame.
         /// </summary>
-        public virtual float rapierMoveSpeed { get; } = 1f;
+        public virtual float RapierMoveSpeed { get; } = 1f;
 
         /// <summary>
         /// Sets the rapier's draw offset. Used for moving the sprite so the hitbox can align with the tip.
         /// </summary>
-        public virtual int rapierOffset { get; } = 0;
+        public virtual int RapierOffset { get; } = 0;
 
         /// <summary>
         /// Sets the rapier's max distance before it stops.

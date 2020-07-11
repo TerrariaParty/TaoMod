@@ -9,10 +9,18 @@ namespace TaoMod.Items.Rapiers
 {
     class WoodenRapier : RapierBase
     {
+        public override void SetStaticDefaults()
+        {
+            Tooltip.SetDefault("Right click to parry");
+        }
         public override void SetDefaults()
         {
             RapierStats(5, 0, 2.5f, 24, 0, 20, false, ProjectileType<WoodenRapierProj>(), 8f);
             base.SetDefaults();
+        }
+        public override bool CanRightClick()
+        {
+            return true;
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
@@ -47,7 +55,7 @@ namespace TaoMod.Items.Rapiers
             base.PostDraw(spriteBatch, lightColor);
         }
         public override bool HasPeaked => Distance >= 32f;
-        public override float rapierMoveSpeed => 8f;
-        public override int rapierOffset => 15;
+        public override float RapierMoveSpeed => 8f;
+        public override int RapierOffset => 15;
     }
 }
