@@ -76,8 +76,6 @@ namespace TaoMod.Items.Rapiers
     //i'll start the rapier projectile inhertied class here, since making another file is uh, wack
     //code taken from example mod cause i'm lazy 😎 
     //credit to examplemod, chicken bones, joifarden, blushiemagic, and javidpack (the contributors to this file specifically, ExampleSpearProjectile.cs
-    //seems as if spearcode did not work 
-    //credit to dayork for below code
 
     /// <summary>
     /// Inherited class. Sets up the basics for a Rapier esc projectile.
@@ -86,77 +84,71 @@ namespace TaoMod.Items.Rapiers
     {
         public override void SetDefaults()
         {
-            //by default lol, shouldnt ever be changed
-            projectile.width = 6;
-            projectile.height = 6;
-            projectile.aiStyle = 19;
+            //basic variables, no need to change
+            projectile.width = 9;
+            projectile.height = 9;
             projectile.penetrate = -1;
-            projectile.scale = 1.2f;
-            projectile.ownerHitCheck = true;
-            projectile.melee = true;
-            projectile.tileCollide = false;
+            projectile.aiStyle = 19;
             projectile.friendly = true;
+            projectile.tileCollide = false;
+
             base.SetDefaults();
         }
+
         /// <summary>
-        /// Creates variables that set the customizable stats of the Rapier esc projectile.
+        /// Sets the movement speed of the rapier projectile.
         /// </summary>
-        /// <param name="timeLeft"></param>
-        public virtual void RapierProjStats(int timeLeft)
+        public virtual float MovementFactor => 0;
+        public float movementFactor // Change this value to alter how fast the spear moves
         {
-            projectile.timeLeft = timeLeft;
+            get => projectile.ai[0];
+            set => projectile.ai[0] = MovementFactor;
         }
         public override void AI()
         {
-            Direction = projectile.velocity.SafeNormalize(-Vector2.UnitX);
-
-            Owner.heldProj = projectile.whoAmI;
-            Owner.itemAnimation = 2;
-            Owner.itemTime = 2;
-
-            projectile.Center = Owner.Center + Direction * Distance + new Vector2(0, Owner.gfxOffY);
-
-            if (!HasPeaked)
-                Distance += RapierMoveSpeed;
+            // Since we access the owner player instance so much, it's useful to create a helper local variable for this
+            // Sadly, Projectile/ModProjectile does not have its own
+            Player projOwner = Main.player[projectile.owner];
+            // Here we set some of the projectile's owner properties, such as held item and itemtime, along with projectile direction and position based on the player
+            Vector2 ownerMountedCenter = projOwner.RotatedRelativePoint(projOwner.MountedCenter, true);
+            projectile.direction = projOwner.direction;
+            projOwner.heldProj = projectile.whoAmI;
+            projOwner.itemTime = projOwner.itemAnimation;
+            projectile.position.X = ownerMountedCenter.X - (float)(projectile.width / 2);
+            projectile.position.Y = ownerMountedCenter.Y - (float)(projectile.height / 2);
+            // As long as the player isn't frozen, the spear can move
+            if (!projOwner.frozen)
+            {
+                if (MovementFactor == 0f) // When initially thrown out, the ai0 will be 0f
+                {
+                    movementFactor = 3f; // Make sure the spear moves forward when initially thrown out
+                    projectile.netUpdate = true; // Make sure to netUpdate this spear
+                }
+                if (projOwner.itemAnimation < projOwner.itemAnimationMax / 3) // Somewhere along the item animation, make sure the spear moves back
+                {
+                    movementFactor -= 2.4f;
+                }
+                else // Otherwise, increase the movement factor
+                {
+                    movementFactor += 2.1f;
+                }
+            }
+            // Change the spear position based off of the velocity and the movementFactor
+            projectile.position += projectile.velocity * MovementFactor;
+            // When we reach the end of the animation, we can kill the spear projectile
+            if (projOwner.itemAnimation == 0)
+            {
+                projectile.Kill();
+            }
+            // Apply proper rotation, with an offset of 135 degrees due to the sprite's rotation, notice the usage of MathHelper, use this class!
+            // MathHelper.ToRadians(xx degrees here)
+            projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(135f);
+            // Offset by 90 degrees here
+            if (projectile.spriteDirection == -1)
+            {
+                projectile.rotation -= MathHelper.ToRadians(90f);
+            }
+            base.AI();
         }
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor) => false;
-
-        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
-        {
-            Texture2D texture = Main.projectileTexture[projectile.type];
-
-            SpriteEffects sfx = Direction.X > 0 ? SpriteEffects.FlipVertically : SpriteEffects.None;
-
-            float rotation = Direction.X > 0 ? (Direction.ToRotation() + MathHelper.Pi * 1.25f) : (Direction.ToRotation() - MathHelper.Pi * 1.25f);
-
-            spriteBatch.Draw(texture, projectile.Center - Direction * RapierOffset - Main.screenPosition, null, lightColor, rotation, new Vector2(texture.Width >> 1, texture.Height >> 1), 1f, sfx, 1f);
-
-        }
-        /// <summary>
-        /// Sets the rapier's movement to how ever many pixels per tick/frame.
-        /// </summary>
-        public virtual float RapierMoveSpeed { get; } = 1f;
-
-        /// <summary>
-        /// Sets the rapier's draw offset. Used for moving the sprite so the hitbox can align with the tip.
-        /// </summary>
-        public virtual int RapierOffset { get; } = 0;
-
-        /// <summary>
-        /// Sets the rapier's max distance before it stops.
-        /// </summary>
-        public virtual bool HasPeaked => Distance >= 0f;
-
-        public virtual float Distance { get; private set; }
-
-        /// <summary>
-        /// Sets the rapier's direction.
-        /// </summary>
-        public Vector2 Direction { get; private set; }
-
-        /// <summary>
-        /// Sets the rapier's owner to the current client's player.
-        /// </summary>
-        public Player Owner => Main.player[projectile.owner];
     }
 }

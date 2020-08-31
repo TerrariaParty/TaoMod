@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaoMod", "TaoMod.csproj", "{956BEAA7-8852-486E-BFA4-A01E765D280C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{956BEAA7-8852-486E-BFA4-A01E765D280C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{956BEAA7-8852-486E-BFA4-A01E765D280C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{956BEAA7-8852-486E-BFA4-A01E765D280C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{956BEAA7-8852-486E-BFA4-A01E765D280C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {122DE1C5-9D59-4CBD-80FD-A533498E3B39}
+	EndGlobalSection
+EndGlobal

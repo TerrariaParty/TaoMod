@@ -6,7 +6,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace TaoMod.Items.Rapiers
 {
-    class WoodenRapier : RapierBase
+    class RichMahoganyRapier : RapierBase
     {
         public override void SetStaticDefaults()
         {
@@ -14,7 +14,7 @@ namespace TaoMod.Items.Rapiers
         }
         public override void SetDefaults()
         {
-            RapierStats(5, 0, 2.5f, 24, 0, 20, false, ProjectileType<WoodenRapierProj>(), 8f);
+            RapierStats(6, 0, 2.5f, 23, 0, 20, false, ProjectileType<RichMahoganyRapierProj>(), 8f);
             base.SetDefaults();
         }
         public override bool CanRightClick()
@@ -28,13 +28,13 @@ namespace TaoMod.Items.Rapiers
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Wood, 7);
+            recipe.AddIngredient(ItemID.RichMahogany, 7);
             recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }
     }
-    class WoodenRapierProj : RapierProjBase 
+    class RichMahoganyRapierProj : RapierProjBase
     {
         public override void SetDefaults()
         {
