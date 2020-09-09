@@ -143,11 +143,6 @@ namespace TaoMod.Items.Rapiers
             // Apply proper rotation, with an offset of 135 degrees due to the sprite's rotation, notice the usage of MathHelper, use this class!
             // MathHelper.ToRadians(xx degrees here)
             projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(135f);
-            // Offset by 90 degrees here
-            if (projectile.spriteDirection == -1)
-            {
-                projectile.rotation -= MathHelper.ToRadians(90f);
-            }
             base.AI();
         }
     }

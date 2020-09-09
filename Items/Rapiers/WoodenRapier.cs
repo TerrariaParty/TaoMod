@@ -36,6 +36,7 @@ namespace TaoMod.Items.Rapiers
     }
     class WoodenRapierProj : RapierProjBase 
     {
+        public override string Texture => "TaoMod/Items/Rapiers/WoodenRapier";
         public override void SetDefaults()
         {
             base.SetDefaults();

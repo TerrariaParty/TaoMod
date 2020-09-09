@@ -36,6 +36,7 @@ namespace TaoMod.Items.Rapiers
     }
     class RichMahoganyRapierProj : RapierProjBase
     {
+        public override string Texture => "TaoMod/Items/Rapiers/RichMahoganyRapier";
         public override void SetDefaults()
         {
             base.SetDefaults();
