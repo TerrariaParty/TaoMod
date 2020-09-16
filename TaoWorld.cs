@@ -28,6 +28,31 @@ namespace TaoMod
         {
             var gemsGiven = new List<string>();
 
+            if (givenFireGem)
+            {
+                gemsGiven.Add("fire");
+            }
+
+            if (givenWaterGem)
+            {
+                gemsGiven.Add("water");
+            }
+
+            if (givenEarthGem)
+            {
+                gemsGiven.Add("earth");
+            }
+
+            if (givenWoodGem)
+            {
+                gemsGiven.Add("wood");
+            }
+
+            if (givenMetalGem)
+            {
+                gemsGiven.Add("metal");
+            }
+
             return new TagCompound
             {
                 ["gemsGiven"] = gemsGiven,
@@ -43,35 +68,35 @@ namespace TaoMod
             givenWoodGem = gemsGiven.Contains("wood");
             givenMetalGem = gemsGiven.Contains("metal");
         }
-		public override void LoadLegacy(BinaryReader reader)
-		{
-			int loadVersion = reader.ReadInt32();
-			if (loadVersion == 0)
-			{
-				BitsByte flags = reader.ReadByte();
-				givenFireGem = flags[0];
-				givenWaterGem = flags[1];
-				givenEarthGem = flags[2];
-				givenWoodGem = flags[3];
-				givenMetalGem = flags[4];
-			}
-			else
-			{
-				mod.Logger.WarnFormat("Tao Mod: Unknown loadVersion: {0}", loadVersion);
-			}
-		}
+        public override void LoadLegacy(BinaryReader reader)
+        {
+            int loadVersion = reader.ReadInt32();
+            if (loadVersion == 0)
+            {
+                BitsByte flags = reader.ReadByte();
+                givenFireGem = flags[0];
+                givenWaterGem = flags[1];
+                givenEarthGem = flags[2];
+                givenWoodGem = flags[3];
+                givenMetalGem = flags[4];
+            }
+            else
+            {
+                mod.Logger.WarnFormat("Tao Mod: Unknown loadVersion: {0}", loadVersion);
+            }
+        }
 
-		public override void NetSend(BinaryWriter writer)
-		{
-			var gems = new BitsByte();
-			gems[0] = givenFireGem;
-			gems[1] = givenWaterGem;
-			gems[2] = givenEarthGem;
-			gems[3] = givenWoodGem;
-			gems[4] = givenMetalGem;
-			writer.Write(gems);
+        public override void NetSend(BinaryWriter writer)
+        {
+            var gems = new BitsByte();
+            gems[0] = givenFireGem;
+            gems[1] = givenWaterGem;
+            gems[2] = givenEarthGem;
+            gems[3] = givenWoodGem;
+            gems[4] = givenMetalGem;
+            writer.Write(gems);
 
-			/*
+            /*
 			Remember that Bytes/BitsByte only have 8 entries. If you have more than 8 flags you want to sync, use multiple BitsByte:
 				This is wrong:
 			flags[8] = downed9thBoss; // an index of 8 is nonsense. 
@@ -83,20 +108,20 @@ namespace TaoMod
 			// up to 7 more flags here
 			writer.Write(flags2); // write this byte
 			*/
-		}
+        }
 
-		public override void NetReceive(BinaryReader reader)
-		{
-			BitsByte gems = reader.ReadByte();
-			givenFireGem = gems[0];
-			givenWaterGem = gems[1];
-			givenEarthGem = gems[2];
-			givenWoodGem = gems[3];
-			givenMetalGem = gems[4];
-			// As mentioned in NetSend, BitBytes can contain 8 values. If you have more, be sure to read the additional data:
-			// BitsByte flags2 = reader.ReadByte();
-			// downed9thBoss = flags[0];
-		}
+        public override void NetReceive(BinaryReader reader)
+        {
+            BitsByte gems = reader.ReadByte();
+            givenFireGem = gems[0];
+            givenWaterGem = gems[1];
+            givenEarthGem = gems[2];
+            givenWoodGem = gems[3];
+            givenMetalGem = gems[4];
+            // As mentioned in NetSend, BitBytes can contain 8 values. If you have more, be sure to read the additional data:
+            // BitsByte flags2 = reader.ReadByte();
+            // downed9thBoss = flags[0];
+        }
 
-	}
+    }
 }

@@ -1,155 +1,51 @@
-﻿using Microsoft.Xna.Framework;
-using System;
-using TaoMod.Items.Rapiers;
-using Terraria;
-using Terraria.GameInput;
+﻿using Terraria;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
-using Terraria.ID;
-using Terraria.Graphics.Capture;
 
 namespace TaoMod
 {
     class TaoPlayer : ModPlayer
     {
-        public bool parryActive;
-        public int parryTimeLeft;
-        public int parry_cooldown;
-        private int _timeSinceLastImmuneGet;
-        private int _immuneStrikes;
+        public int spiritMeterCurrent;
+        public const int DefaultSpiritMeterMax = 100;
+        public int spiritMeterMax;
+        public int spiritMeterMax2;
+        public float spiritMeterRegenRate;
+        internal int spiritMeterRegenTimer = 0;
 
-        public override void PostUpdate()
+        public override void Initialize()
         {
-            if (parryActive)
-            {
-                player.statDefense += 15;
-            }
+            spiritMeterMax = DefaultSpiritMeterMax;
         }
-        public void UpdateCollision()
+
+        public override void ResetEffects()
         {
-            for (int i = 0; i < 200; i++)
-            {
-                NPC npc = GetInstance<NPC>();
-                bool flag = true;
-                bool flag2 = false;
-                bool num = CanParryAgainst(player.getRect(), npc.getRect(), Main.npc[i].velocity);
-                float num2 = player.thorns;
-                float knockback = 10f;
-                if (num)
-                {
-                    num2 = 2f;
-                    knockback = 5f;
-                    flag = false;
-                    flag2 = true;
-                }
-                if (num)
-                {
-                    GiveImmuneTimeForCollisionAttack(player.longInvince ? 60 : 30);
-                    player.AddBuff(BuffID.ParryDamageBuff, 300, quiet: false);
-                }
-            }
+            ResetVariables();
         }
-        public void GiveImmuneTimeForCollisionAttack(int time)
+
+        public override void UpdateDead()
         {
-            if (_timeSinceLastImmuneGet <= 20)
-            {
-                _immuneStrikes++;
-            }
-            else
-            {
-                _immuneStrikes = 1;
-            }
-            _timeSinceLastImmuneGet = 0;
-            if (_immuneStrikes < 3)
-            {
-                player.immune = true;
-                player.immuneNoBlink = true;
-                player.immuneTime = time;
-            }
+            ResetVariables();
         }
-        public void TaoPlayerFrame()
+        private void ResetVariables()
         {
-            if (parryActive)
-            {
-                player.bodyFrame.Y = player.height * 10;
-            }
+            spiritMeterRegenRate = 1f;
+            spiritMeterMax2 = spiritMeterMax;
         }
-        public bool CanParryAgainst(Rectangle blockingPlayerRect, Rectangle enemyRect, Vector2 enemyVelocity)
+        public override void PostUpdateMiscEffects()
         {
-            if (parryTimeLeft > 0 && Math.Sign(enemyRect.Center.X - blockingPlayerRect.Center.X) == player.direction && enemyVelocity != Vector2.Zero)
-            {
-                return !player.immune;
-            }
-            return false;
+            UpdateResource();
         }
-        public void FuckVanillaCodeAllMyHomiesHateVanillaCode()
+        private void UpdateResource()
         {
-            bool CanRightClick = player.selectedItem != 58 && player.controlUseTile && !player.tileInteractionHappened && player.releaseUseItem && !player.controlUseItem && !player.mouseInterface && !CaptureManager.Instance.Active && !Main.HoveringOverAnNPC && !Main.SmartInteractShowingGenuine;
-            ParryFunc(CanRightClick);
-        }
-        public void ParryFunc(bool theGeneralCheck)
-        {
-            Item item = new Item();
-            bool mouseRight = PlayerInput.Triggers.JustPressed.MouseRight;
-            if (player.whoAmI != Main.myPlayer)
+            spiritMeterRegenTimer++; 
+
+            if (spiritMeterRegenTimer > 60 * spiritMeterRegenRate)
             {
-                mouseRight = parryActive;
-                theGeneralCheck = parryActive;
+                spiritMeterCurrent += 1;
+                spiritMeterRegenTimer = 0;
             }
-            bool shouldParry = false;
-            bool IsItARapier = player.inventory[player.selectedItem].type == ItemType<WoodenRapier>();
-            if (theGeneralCheck && IsItARapier && !player.mount.Active && (item.useAnimation == 0 || mouseRight))
-            {
-                shouldParry = true;
-            }
-            if (parry_cooldown > 0)
-            {
-                parry_cooldown--;
-                if (parry_cooldown == 0)
-                {
-                    Main.PlaySound(SoundID.MaxMana, player.Center);
-                    for (int i = 0; i < 10; i++)
-                    {
-                        int num = Dust.NewDust(player.Center + new Vector2(player.direction * 6 + ((player.direction == -1) ? (-10) : 0), -14f), 10, 16, 45, 0f, 0f, 255, new Color(255, 100, 0, 127), (float)Main.rand.Next(10, 16) * 0.1f);
-                        Main.dust[num].noLight = true;
-                        Main.dust[num].noGravity = true;
-                        Main.dust[num].velocity *= 0.5f;
-                    }
-                }
-            }
-            if (parryTimeLeft > 0 && ++parryTimeLeft > 20)
-            {
-                parryTimeLeft = 0;
-            }
-            TryTogglingParry(shouldParry);
-        }
-        public void TryTogglingParry(bool shouldParry)
-        {
-            Item item = new Item();
-            if (shouldParry == parryActive)
-            {
-                return;
-            }
-            parryActive = shouldParry;
-            if (parryActive)
-            {
-                if (parry_cooldown == 0)
-                {
-                    parryTimeLeft = 1;
-                }
-                item.useAnimation = 0;
-                item.useTime = 0;
-                item.reuseDelay = 0;
-            }
-            else
-            {
-                parry_cooldown = 15;
-                parryTimeLeft = 0;
-                if (player.attackCD < 20)
-                {
-                    player.attackCD = 20;
-                }
-            }
+
+            spiritMeterCurrent = Utils.Clamp(spiritMeterCurrent, 0, spiritMeterMax2);
         }
     }
 }
