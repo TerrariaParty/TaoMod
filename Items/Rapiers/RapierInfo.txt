@@ -1,0 +1,27 @@
+Rapier types:
+LMB - Can be a stab (1) or a 20-35 degree slash (2)
+RMB - Can be a thrusting dash (1) or a parry (2)
+Effects (Eff) - None (1), Generic Debuff (2), New Mechanics (3), FUCKING BEAM SWORD PROJECTILES AHHHHHHHHHHHHHHHHHHH (Calamity)
+
+Yeeter of Worlds (EoW Drop)
+LMB - 1
+RMB - 1
+Eff - 1
+Notes:
+- Dash has extremely high launch velocity
+
+True Tyrfing (True Excaliber variant) 
+LMB - 1
+RMB - 2
+Eff - 3
+Notes:
+- On hitting an enemy with a dash, youll gain 3 rotating tyrfing beams 
+- The beams will aim at your cursor for 2 seconds then launch one at a time with 0.5s delay
+
+True Dawn's Piercer (True Night's Edge variant) 
+LMB - 2
+LMB - 1
+Eff - 3
+Notes:
+- Shoots a short ranged slash that does 0 damage, but marks the enemy
+- Hitting the enemy with a dash will remove the mark and deal extra damage (2x, 3x if crit)
