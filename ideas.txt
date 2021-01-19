@@ -1,0 +1,9 @@
+Sigil of Harmony
+'You can feel 2 forces trying to stay in balance as you hold this'
+Activates Shattered Balance mode
+While Shattered Balance mode is on bosses are able to be summoned any time despite requirements
+The bosses can be possessed by Yin or Yang based on time of day
+Yin makes the bosses stronger and faster but less durable
+Yang makes the bosses weaker and slower but more durable
+
+Obtained at a Ruined Shrine on a wall
