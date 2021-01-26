@@ -5,5 +5,8 @@ While Shattered Balance mode is on bosses are able to be summoned any time despi
 The bosses can be possessed by Yin or Yang based on time of day
 Yin makes the bosses stronger and faster but less durable
 Yang makes the bosses weaker and slower but more durable
+Killing a possessed boss gives a Shattered Balance boss item
 
 Obtained at a Ruined Shrine on a wall
+
+Change amulets to weapons potentially at the end game?
